@@ -6,7 +6,7 @@
 
 	<groupId>am.ik.s3</groupId>
 	<artifactId>simple-s3-client</artifactId>
-	<version>0.3.0-nomin-2</version>
+	<version>0.3.0-nomin-3</version>
 	<name>simple-s3-client</name>
 	<description>A simple S3 Java Client that only uses RestTemplate and Jackson</description>
 
@@ -46,7 +46,7 @@
 			<artifactId>spring-web</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<groupId>tools.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>
 			<exclusions>
 				<exclusion>
@@ -54,10 +54,6 @@
 					<artifactId>woodstox-core</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.datatype</groupId>
-			<artifactId>jackson-datatype-jsr310</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>cc.jilt</groupId>

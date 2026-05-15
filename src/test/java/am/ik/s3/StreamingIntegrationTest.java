@@ -12,7 +12,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.ResourceHttpMessageConverter;
-import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
+import org.springframework.http.converter.xml.JacksonXmlHttpMessageConverter;
 import org.springframework.web.client.RestClient;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
@@ -33,7 +33,7 @@ class StreamingIntegrationTest {
 	private S3Client s3Client;
 
 	private final RestClient restClient = RestClient.builder().messageConverters(converters -> {
-		converters.add(new MappingJackson2XmlHttpMessageConverter());
+		converters.add(new JacksonXmlHttpMessageConverter());
 		converters.add(new ResourceHttpMessageConverter());
 	}).build();
 

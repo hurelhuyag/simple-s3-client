@@ -15,7 +15,7 @@
  */
 package am.ik.s3;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 /**
  * Represents a delete marker in S3 versioning.
@@ -31,7 +31,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
  */
 public record DeleteMarker(@JacksonXmlProperty(localName = "Key") String key,
 		@JacksonXmlProperty(localName = "LastModified") String lastModified,
-		@JacksonXmlProperty(localName = "ETag") String eTag, @JacksonXmlProperty(localName = "Size") int size,
+		@JacksonXmlProperty(localName = "ETag") String eTag, @JacksonXmlProperty(localName = "Size") Integer size,
 		@JacksonXmlProperty(localName = "Owner") Owner owner,
 		@JacksonXmlProperty(localName = "StorageClass") String storageClass,
 		@JacksonXmlProperty(localName = "IsLatest") boolean isLatest,

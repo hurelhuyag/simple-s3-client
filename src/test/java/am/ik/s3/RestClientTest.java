@@ -26,7 +26,7 @@ import org.testcontainers.utility.DockerImageName;
 
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.MediaType;
-import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
+import org.springframework.http.converter.xml.JacksonXmlHttpMessageConverter;
 import org.springframework.web.client.RestClient;
 
 import static am.ik.s3.S3RequestBuilder.s3Request;
@@ -49,7 +49,7 @@ class RestClientTest {
 	@BeforeEach
 	void setup() {
 		this.restClient = RestClient.builder()
-			.messageConverters(converters -> converters.add(new MappingJackson2XmlHttpMessageConverter()))
+			.messageConverters(converters -> converters.add(new JacksonXmlHttpMessageConverter()))
 			.build();
 	}
 

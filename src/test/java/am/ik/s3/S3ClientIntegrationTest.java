@@ -8,7 +8,7 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.DockerImageName;
 
-import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
+import org.springframework.http.converter.xml.JacksonXmlHttpMessageConverter;
 import org.springframework.web.client.RestClient;
 
 import java.util.List;
@@ -33,7 +33,7 @@ class S3ClientIntegrationTest {
 	@BeforeEach
 	void setUp() {
 		RestClient restClient = RestClient.builder()
-			.messageConverters(converters -> converters.add(new MappingJackson2XmlHttpMessageConverter()))
+			.messageConverters(converters -> converters.add(new JacksonXmlHttpMessageConverter()))
 			.build();
 
 		client = S3Client.builder()

@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
+import org.springframework.http.converter.xml.JacksonXmlHttpMessageConverter;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.util.unit.DataSize;
@@ -71,7 +71,7 @@ class PresignedUrlIntegrationTest {
 		client = S3Client.builder().endpoint(endpoint).region("us-east-1").credentials(ACCESS_KEY, SECRET_KEY).build();
 
 		restClient = RestClient.builder()
-			.messageConverters(converters -> converters.add(new MappingJackson2XmlHttpMessageConverter()))
+			.messageConverters(converters -> converters.add(new JacksonXmlHttpMessageConverter()))
 			.bufferContent((uri, method) -> true)
 			.build();
 

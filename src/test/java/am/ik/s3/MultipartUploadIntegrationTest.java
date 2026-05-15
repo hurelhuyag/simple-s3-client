@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.core.io.ByteArrayResource;
-import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
+import org.springframework.http.converter.xml.JacksonXmlHttpMessageConverter;
 import org.springframework.util.unit.DataSize;
 import org.springframework.web.client.RestClient;
 import org.testcontainers.containers.GenericContainer;
@@ -33,7 +33,7 @@ class MultipartUploadIntegrationTest {
 	private String bucketName;
 
 	private final RestClient restClient = RestClient.builder()
-		.messageConverters(converters -> converters.add(new MappingJackson2XmlHttpMessageConverter()))
+		.messageConverters(converters -> converters.add(new JacksonXmlHttpMessageConverter()))
 		.build();
 
 	@BeforeEach

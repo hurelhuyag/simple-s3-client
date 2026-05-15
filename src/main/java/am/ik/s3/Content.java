@@ -17,7 +17,7 @@ package am.ik.s3;
 
 import java.time.OffsetDateTime;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 /**
  * Represents an S3 object (content) within a bucket.

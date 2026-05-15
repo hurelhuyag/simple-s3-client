@@ -1,6 +1,6 @@
 package am.ik.s3;
 
-import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
+import org.springframework.http.converter.xml.JacksonXmlHttpMessageConverter;
 import org.springframework.web.client.RestClient;
 
 import java.net.URI;
@@ -179,7 +179,7 @@ public final class S3Client {
 		 */
 		private static RestClient createDefaultRestClient() {
 			return RestClient.builder().messageConverters(converters -> {
-				converters.add(new MappingJackson2XmlHttpMessageConverter());
+				converters.add(new JacksonXmlHttpMessageConverter());
 				converters.add(new org.springframework.http.converter.ResourceHttpMessageConverter());
 			}).build();
 		}

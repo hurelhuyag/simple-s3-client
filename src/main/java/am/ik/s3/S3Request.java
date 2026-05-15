@@ -346,8 +346,7 @@ public final class S3Request {
 	public S3Request completeMultipartUpload(String uploadId, CompleteMultipartUpload completeRequest) {
 		String queryString = "uploadId=" + urlEncode(uploadId);
 		try {
-			com.fasterxml.jackson.dataformat.xml.XmlMapper xmlMapper = new com.fasterxml.jackson.dataformat.xml.XmlMapper();
-			String xmlBody = xmlMapper.writeValueAsString(completeRequest);
+			String xmlBody = tools.jackson.dataformat.xml.XmlMapper.shared().writeValueAsString(completeRequest);
 			// Use text/xml content type which is more compatible with S3/MinIO
 			org.springframework.http.MediaType xmlMediaType = org.springframework.http.MediaType
 				.parseMediaType("text/xml; charset=utf-8");

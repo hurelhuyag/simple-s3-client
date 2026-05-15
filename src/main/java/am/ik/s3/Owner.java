@@ -15,7 +15,7 @@
  */
 package am.ik.s3;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 /**
  * Represents the owner of an S3 bucket or object.

@@ -28,7 +28,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.ResourceHttpMessageConverter;
-import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
+import org.springframework.http.converter.xml.JacksonXmlHttpMessageConverter;
 import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestTemplate;
@@ -67,12 +67,12 @@ class VersioningIntegrationTest {
 	@BeforeEach
 	void setUp() {
 		restClient = RestClient.builder().messageConverters(converters -> {
-			converters.add(new MappingJackson2XmlHttpMessageConverter());
+			converters.add(new JacksonXmlHttpMessageConverter());
 			converters.add(new ResourceHttpMessageConverter());
 		}).build();
 
 		restTemplate = new RestTemplate();
-		restTemplate.getMessageConverters().add(new MappingJackson2XmlHttpMessageConverter());
+		restTemplate.getMessageConverters().add(new JacksonXmlHttpMessageConverter());
 
 		client = S3Client.builder()
 			.endpoint(localstack.getEndpointOverride(S3).toString())

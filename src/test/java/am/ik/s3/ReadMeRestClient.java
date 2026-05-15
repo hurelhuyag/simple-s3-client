@@ -23,7 +23,7 @@ import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
+import org.springframework.http.converter.xml.JacksonXmlHttpMessageConverter;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.util.unit.DataSize;
@@ -35,7 +35,7 @@ public class ReadMeRestClient {
 
 	public static void main(String[] args) {
 		RestClient restClient = RestClient.builder()
-			.messageConverters(converters -> converters.add(new MappingJackson2XmlHttpMessageConverter()))
+			.messageConverters(converters -> converters.add(new JacksonXmlHttpMessageConverter()))
 			.build();
 
 		URI endpoint = URI.create("https://play.min.io");
